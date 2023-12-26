@@ -66,6 +66,6 @@ The training data for WineMetrics is sourced from the [UCI Machine Learning Repo
 
 ---
 
-> [selimellieh.me](https://www.selimellieh.me) &nbsp;&middot;&nbsp;
+> [selimellieh72.github.io](https://selimellieh72.github.io) &nbsp;&middot;&nbsp;
 > GitHub [@selimellieh72](https://github.com/selimellieh72) &nbsp;&middot;&nbsp;
 > Twitter [@selim_ellieh](https://twitter.com/selim_ellieh)

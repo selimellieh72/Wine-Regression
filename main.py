@@ -7,14 +7,14 @@ N = 11
 
 def main():
     x_train, y_train = importTrainingData(FILE_NAME, M, N)
-    print("type of x_train:", type(x_train))
-    print("First five elements of x_train with all features:", x_train[:5])
-    print("type of y_train:", type(y_train))
-    print("First five elements of y_train", y_train[:5])
-    print("The shape of x train", x_train.shape)
-    print("The shape of  y_train", y_train.shape)
+    #print("type of x_train:", type(x_train))
+    #print("First five elements of x_train with all features:", x_train[:5])
+    #print("type of y_train:", type(y_train))
+    #print("First five elements of y_train", y_train[:5])
+    #print("The shape of x train", x_train.shape)
+    #print("The shape of  y_train", y_train.shape)
     print("Number of training examples (m)", len(x_train))
-    print(y_train)
+   # print(y_train)
     # scatter(x_train[:, 0], y_train, "Quality vs Acidity", "Quality of Wine", "Fixed acidity")
     #print(x_train[:, 0])
     # Normalize
@@ -28,10 +28,10 @@ def main():
     print("b_init value:", b_init)
     print("w_init value:", w_init)
     
-    x_vec = x_train_normalized[0, :]
-    print("x_vec value:", x_vec)
-    f_wb = predictSingleLoop(x_vec, w_init, b_init)
-    print("prediction f_wb:", f_wb)
+    #x_vec = x_train_normalized[0, :]
+    #print("x_vec value:", x_vec)
+    #f_wb = predictSingleLoop(x_vec, w_init, b_init)
+    #print("prediction f_wb:", f_wb)
 
     print("Thus, intially cost at w is:", computeCost(x_train_normalized, y_train, w_init, b_init))
     iterations = 3000
@@ -40,12 +40,12 @@ def main():
     w_optimal, b_optimal = gradientDescent(x_train_normalized, y_train, w_init, b_init, 0.01, iterations)
     print(f"Optimal w found by batch gradient descent is {w_optimal}!")
     print(f"Optimal b found by batch gradient descent is {b_optimal}!")
-    print("Recall, x_vec value:", x_vec)
-    f_wb = predictSingleLoop(x_vec, w_optimal, b_optimal)
-    print("prediction f_wb using optimal w and b:", f_wb)
-    print("Try to predict this new wine: ")
+    #print("Recall, x_vec value:", x_vec)
+    #f_wb = predictSingleLoop(x_vec, w_optimal, b_optimal)
+    #print("prediction f_wb using optimal w and b:", f_wb)
+    print("Predict new wine!8 ")
     '''
-    Predict wine with characteristics:
+    Example wine with characteristics:
     - Fixed Acidity: 8.5
     - Volatile Acidity: 0.45
     - Citric Acid: 0.3
@@ -58,7 +58,19 @@ def main():
     - Sulphates: 0.65
     - Alcohol: 10.5
     '''
-    x_pred = np.array([8.5,0.45,0.3,2.5,0.08,20,75,0.9968,3.4,0.65,10.5])
+    x_pred = np.empty(11)
+    x_pred[0] = float(input("Fixed Acidity: "))
+    x_pred[1] = float(input("Volatile Acidity: "))
+    x_pred[2] = float(input("Citric Acid: "))
+    x_pred[3] = float(input("Residual Sugar: "))
+    x_pred[4] = float(input("Chlorides: "))
+    x_pred[5] = float(input("Free Sulfur Dioxide: "))
+    x_pred[6] = float(input("Total Sulfur Dioxide: "))
+    x_pred[7] = float(input("Density: "))
+    x_pred[8] = float(input("pH: "))
+    x_pred[9] = float(input("Sulphates: "))
+    x_pred[10] = float(input("Alcohol: "))
+
     print("Predicing x_pred =", x_pred)
     x_pred_normalized =normalizeElement(x_pred, means, stds)
     f_wb = predictSingleLoop(x_pred_normalized, w_optimal, b_optimal)
